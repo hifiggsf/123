@@ -1,0 +1,31 @@
+def print_board(board):
+    for row in board:
+        print(" ".join("Q" if x == 1 else "." for x in row))
+
+def is_safe(board, row, col):
+    for i in range(row):
+        if board[i][col] == 1 or \
+           (col - (row - i) >= 0 and board[i][col - (row - i)] == 1) or \
+           (col + (row - i) < len(board) and board[i][col + (row - i)] == 1):
+            return False
+    return True
+
+def solve_n_queens(board, row):
+    if row == len(board):
+        return True
+    for col in range(len(board)):
+        if is_safe(board, row, col):
+            board[row][col] = 1
+            if solve_n_queens(board, row + 1):
+                return True
+            board[row][col] = 0  # Backtrack
+    return False
+
+n = int(input("Enter the value for n: "))
+board = [[0] * n for _ in range(n)]
+
+if solve_n_queens(board, 0):
+    print("Solution:")
+    print_board(board)
+else:
+    print("No solution exists.")

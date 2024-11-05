@@ -1,0 +1,40 @@
+def greet(bot_name, birth_year):
+    print(f"Hello! My name is {bot_name}. I was created in {birth_year}. I'm here to talk about computer engineering!")
+
+def remind_name():
+    name = input("Could you please tell me your name? ")
+    print(f"Nice to meet you, {name}! Are you interested in computer engineering?")
+
+def favorite_language():
+    language = input("What is your favourite programming language? ")
+    print(f"{language} is a great choice! It's widely used in computer engineering.")
+
+def count_to_number():
+    num = int(input("I can count the number of bits in a byte! Please enter a number: "))
+    print(f"Counting from 0 to {num}:")
+    for count in range(num + 1):
+        print(count)
+
+def test():
+    print("Now, let me test your knowledge in computer engineering.")
+    print("What does CPU stand for?")
+    print("1. Central Processing Unit")
+    print("2. Computer Personal Unit")
+    print("3. Centralised Processing Unit")
+    print("4. Computer Processing Unit")
+
+    guess = int(input("Please enter the number of your answer (1-4): "))
+    while guess != 1:
+        print("That's not correct. Please, try again.")
+        guess = int(input("Please enter the number of your answer (1-4): "))
+    print("Correct! CPU stands for Central Processing Unit.")
+
+def end():
+    print("Congratulations, you've completed the interaction with me! Keep learning about computer engineering!")
+
+greet('TE-Chatbot', '2024')
+remind_name()
+favorite_language()  # Replaced favorite_color with favorite_language
+count_to_number()
+test()
+end()

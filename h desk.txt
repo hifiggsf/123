@@ -1,0 +1,35 @@
+problem_dict = {
+    1: "Printer not working",
+    2: "Can't log in",
+    3: "Software not installing",
+    4: "Internet connection not working",
+    5: "Email not sending"
+}
+
+solution_dict = {
+    1: "Check that it's turned on and connected to the network.",
+    2: "Make sure you're using the correct username and password.",
+    3: "Check that your computer meets the system requirements.",
+    4: "Restart your modem or router.",
+    5: "Check that you're using the correct email server settings."
+}
+
+def get_solution(user_input):
+    if user_input.lower() == "exit":
+        return "Goodbye!"
+    try:
+        problem_number = int(user_input)
+        return solution_dict.get(problem_number, "I'm sorry, I don't know how to help with that problem.")
+    except ValueError:
+        return "Please enter a valid number or type 'exit' to quit."
+
+while True:
+    print("\nHere are some common problems you can ask about (type the corresponding number):")
+    for number, problem in problem_dict.items():
+        print(f"{number}. {problem}")
+    
+    user_input = input("\nWhat's the problem? Type 'exit' to quit: ")
+    response = get_solution(user_input)
+    print(response)
+    if response == "Goodbye!":
+        break
